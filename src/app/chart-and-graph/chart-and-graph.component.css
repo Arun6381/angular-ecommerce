@@ -1,0 +1,32 @@
+.cart-containers {
+    margin: 20px;
+  }
+  
+  .export-buttons {
+    margin-bottom: 20px;
+  }
+  
+  .export-buttons button {
+    margin-right: 10px;
+  }
+  
+  .charts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .chart {
+    width: 100%;
+    max-width: 500px;
+  }
+  ::ng-deep .ngx-charts-text {
+    fill: #FF0000 !important; /* Change label text color */
+    font-size: 14px;          /* Optional: Change font size */
+  }
+  
+  ::ng-deep .ngx-charts-x-axis text, 
+  ::ng-deep .ngx-charts-y-axis text {
+    fill: #0000FF !important; /* Change axis label color */
+  }
+  

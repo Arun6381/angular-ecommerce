@@ -1,0 +1,30 @@
+<div class="container">
+    <!-- Categories Section -->
+    <div *ngIf="categories.length > 0; else noCategories" class="categories-container">
+      <ul>
+        <li (click)="getAllProduct()">Get All Product</li>
+        <li *ngFor="let category of categories" (click)="getProductByCategory(category.categoryId)">
+          {{ category.categoryName }}
+        </li>
+      </ul>
+    </div>
+  
+    <ng-template #noCategories>
+      <p>No categories found.</p>
+    </ng-template>
+  
+    <div *ngIf="ProductCategoryService.length > 0; else noProducts" class="products-container">
+      <div class="product-grid">
+        <div class="product-card" *ngFor="let product of ProductCategoryService">
+          <h3>{{ product.productName }}</h3>
+          <p><strong>Price:</strong> {{ product.price | currency }}</p>
+          <p><strong>Description:</strong> {{ product.description }}</p>
+          <p><button (click)="handleAddToCart(product.product_Id)">Add To Cart</button></p>
+        </div>
+      </div>
+    </div>
+    
+    <ng-template #noProducts>
+      <p>No products found for the selected category.</p>
+    </ng-template>
+    

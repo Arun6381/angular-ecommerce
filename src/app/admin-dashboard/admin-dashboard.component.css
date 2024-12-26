@@ -1,0 +1,88 @@
+.cart-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .filter-container {
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .clear-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+  }
+  
+  .suggestion-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  .suggestion-list li {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .suggestion-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .cart-table {
+    margin-top: 20px;
+  }
+  
+  .cart-header,
+  .cart-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  
+  .cart-header {
+    font-weight: bold;
+  }
+  ::ng-deep .pagination .p-paginator {
+    background-color: transparent !important;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-button {
+    margin: 0 10px;
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .pagination-info {
+    margin: 0 10px;
+  }
+  

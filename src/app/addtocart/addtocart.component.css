@@ -1,0 +1,48 @@
+/* Add to cart container */
+.cart-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 16px; /* Spacing between items */
+    padding: 16px; /* Padding around the grid */
+  }
+  
+  /* Individual cart item styling */
+  .cart-item {
+    border: 1px solid #ccc; /* Light border */
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Inner padding */
+    text-align: center; /* Center content */
+    background-color: #f9f9f9; /* Background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Button styling */
+  .cart-item button {
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 8px 16px; /* Button padding */
+    cursor: pointer; /* Pointer cursor */
+  }
+  
+  .cart-item button:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+  }
+  
+  /* Success message styling */
+  .success-message {
+    color: green;
+    font-weight: bold;
+  }
+  
+  /* Mobile view (for smaller screens) */
+  @media (max-width: 768px) {
+    .cart-container {
+      grid-template-columns: 1fr; /* Single column on mobile */
+    }
+  }
+  

@@ -1,0 +1,46 @@
+<div class="cart-containers">
+  <h2>Cart Reports</h2>
+
+  <div class="export-buttons p-splitbutton-dropdown">
+    <p-toast></p-toast>
+    <p-splitbutton
+      label="Export"
+      [model]="menuItems"
+      icon="pi pi-file"
+    ></p-splitbutton>
+  </div>
+  <!-- <div class="export-buttons">
+    <button class="btn btn-primary" (click)="exportToExcel()" style="margin-right: 10px;">Export to Excel</button>
+    <button class="btn btn-secondary" (click)="exportGraphToImage()">Export Chart as Image</button>
+  </div> -->
+  <p-button label="Export to Excel" (onClick)="exportToExcel()"/>
+  <p-button label="Export chart as Image" (onClick)="exportGraphToImage()"/>
+
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <div *ngIf="!loading && !error" class="charts">
+    <div class="chart">
+      <h3>Order Status</h3>
+      <ngx-charts-pie-chart
+        [results]="statusData"
+        [doughnut]="false"
+        [labels]="true"
+      ></ngx-charts-pie-chart>
+    </div>
+
+    <div class="chart">
+      <h3>Product Distribution</h3>
+      <ngx-charts-bar-vertical
+        [results]="productData"
+        [xAxis]="true"
+        [yAxis]="true"
+        [showDataLabel]="true"
+        [yScaleMax]="10" 
+        [yScaleMin]="0" 
+        [yAxisTickFormatting]="yAxisTickFormatting"
+      ></ngx-charts-bar-vertical>
+    </div>
+  </div>
+</div>

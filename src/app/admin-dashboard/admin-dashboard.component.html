@@ -1,0 +1,240 @@
+<div class="cart-container" *ngIf="!loading; else loadingTemplate">
+  <div class="filter-container">
+    <div class="search-wrapper">
+      <input
+        type="text"
+        [(ngModel)]="selectedUser"
+        (input)="handleInputChange($event)"
+        placeholder="Type a username..."
+      />
+      <button
+        *ngIf="selectedUser"
+        (click)="clearSearch()"
+        class="clear-btn"
+        aria-label="Clear search"
+      >
+        ✖
+      </button>
+    </div>
+    <ul *ngIf="filteredUsernames.length > 0" class="suggestion-list">
+      <li
+        *ngFor="let username of filteredUsernames"
+        (click)="handleSuggestionClick(username)"
+      >
+        {{ username }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="cart-table">
+    <div class="cart-header">
+      <div class="header-item">User Name</div>
+      <div class="header-item">Product</div>
+      <div class="header-item">Price</div>
+      <div class="header-item">Status</div>
+    </div>
+    <div class="cart-body">
+      <div *ngIf="currentItems.length === 0" class="no-items">
+        No items found for the selected user
+      </div>
+      <div *ngFor="let item of currentItems" class="cart-row">
+        <div class="cart-cell">{{ item.firstName }}</div>
+        <div class="cart-cell">{{ item.productName }}</div>
+        <div class="cart-cell">${{ item.price }}</div>
+        <div class="cart-cell">
+          {{ item.status === 1 ? "Order Placed" : "Pending" }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <p-paginator
+      [first]="first"
+      [rows]="itemsPerPage"
+      [totalRecords]="filteredCartDetails.length"
+      (onPageChange)="loadPageData($event)"
+      
+    ></p-paginator>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="card">
+    <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+        <ul class="m-0 p-0 list-none">
+            <li class="mb-4">
+                <div class="flex">
+                    <p-skeleton shape="circle" size="4rem" styleClass="mr-2" />
+                    <div class="self-center" style="flex: 1">
+                        <p-skeleton width="100%" styleClass="mb-2" />
+                        <p-skeleton width="75%" />
+                    </div>
+                </div>
+            </li>
+            <li class="mb-4">
+                <div class="flex">
+                    <p-skeleton shape="circle" size="4rem" styleClass="mr-2" />
+                    <div class="self-center" style="flex: 1">
+                        <p-skeleton width="100%" styleClass="mb-2" />
+                        <p-skeleton width="75%" />
+                    </div>
+                </div>
+            </li>
+            <li class="mb-4">
+                <div class="flex">
+                    <p-skeleton shape="circle" size="4rem" styleClass="mr-2" />
+                    <div class="self-center" style="flex: 1">
+                        <p-skeleton width="100%" styleClass="mb-2" />
+                        <p-skeleton width="75%" />
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="flex">
+                    <p-skeleton shape="circle" size="4rem" styleClass="mr-2" />
+                    <div class="self-center" style="flex: 1">
+                        <p-skeleton width="100%" styleClass="mb-2" />
+                        <p-skeleton width="75%" />
+                    </div>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+</ng-template>
+
+
+
+<!-- 
+ <div class="cart-container" *ngIf="!loading; else loadingTemplate">
+  <div class="filter-container">
+    <div class="search-wrapper">
+      <input
+        type="text"
+        [(ngModel)]="selectedUser"
+        (input)="handleInputChange($event)"
+        placeholder="Type a username..."
+      />
+
+      <button
+        *ngIf="selectedUser"
+        (click)="clearSearch()"
+        class="clear-btn"
+        aria-label="Clear search"
+      >
+        ✖
+      </button>
+    </div>
+    <ul *ngIf="filteredUsernames.length > 0" class="suggestion-list">
+      <li
+        *ngFor="let username of filteredUsernames"
+        (click)="handleSuggestionClick(username)"
+      >
+        {{ username }}
+      </li>
+    </ul>
+  </div>
+
+  
+  <div class="cart-table">
+    <div class="cart-header">
+      <div class="header-item">User Name</div>
+      <div class="header-item">Product</div>
+      <div class="header-item">Price</div>
+      <div class="header-item">Status</div>
+    </div>
+    <div class="cart-body">
+      <div *ngIf="currentItems.length === 0" class="no-items">
+        No items found for the selected user
+      </div>
+      <div *ngFor="let item of currentItems" class="cart-row">
+        <div class="cart-cell">{{ item.firstName }}</div>
+        <div class="cart-cell">{{ item.productName }}</div>
+        <div class="cart-cell">${{ item.price }}</div>
+        <div class="cart-cell">
+          {{ item.status === 1 ? "Order Placed" : "Pending" }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination-controls">
+    <button
+      (click)="goToPreviousPage()"
+      [disabled]="currentPage === 1"
+      class="pagination-button"
+    >
+      ← Previous
+    </button>
+    <span class="pagination-info">{{ currentPage }} / {{ totalPages }}</span>
+    <button
+      (click)="goToNextPage()"
+      [disabled]="currentPage === totalPages"
+      class="pagination-button"
+    >
+      Next →
+    </button>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div>Loading...</div>
+</ng-template>  -->
+
+
+<!-- <div class="cart-container" *ngIf="!loading; else loadingTemplate">
+ 
+  
+    <div class="filter-container">
+      <div class="search-wrapper">
+        <input
+          type="text"
+          [(ngModel)]="selectedUser"
+          (input)="handleInputChange($event)"
+          placeholder="Type a username..."
+        />
+  
+        <button
+          *ngIf="selectedUser"
+          (click)="clearSearch()"
+          class="clear-btn"
+          aria-label="Clear search"
+        >
+          ✖
+        </button>
+      </div>
+      <ul *ngIf="filteredUsernames.length > 0" class="suggestion-list">
+        <li
+          *ngFor="let username of filteredUsernames"
+          (click)="handleSuggestionClick(username)"
+        >
+          {{ username }}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="dataview-container">
+      <p-dataview #dv [value]="filteredCartDetails" [rows]="itemsPerPage" [paginator]="true" [lazy]="true"
+        [totalRecords]="filteredCartDetails.length" (onLazyLoad)="loadPageData($event)">
+        <p-dataview #dv [value]="filteredCartDetails" [rows]="itemsPerPage" [paginator]="true" [lazy]="true"
+          [totalRecords]="filteredCartDetails.length" (onLazyLoad)="loadPageData($event)">
+          <ng-template pTemplate="list" let-item>
+            <div class="cart-row">
+              <div class="cart-cell">{{ item.firstName }}</div>
+              <div class="cart-cell">{{ item.productName }}</div>
+              <div class="cart-cell">${{ item.price }}</div>
+              <div class="cart-cell">
+                {{ item.status === 1 ? 'Order Placed' : 'Pending' }}
+              </div>
+            </div>
+          </ng-template>
+        </p-dataview>
+
+      </p-dataview>
+    </div>
+    </div>
+    <ng-template #loadingTemplate>
+      <div>Loading...</div>
+    </ng-template> -->

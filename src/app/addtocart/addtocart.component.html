@@ -1,0 +1,26 @@
+<div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  
+  <div *ngIf="cartItems.length > 0; else noItems">
+    <div class="cart-container">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <strong>{{ item.productName }}</strong> 
+        <span>₹{{ item.price }}</span> 
+        <span *ngIf="item.status === 0">
+          <button (click)="placeTheOrder(item.cartId)">Place the Order</button>
+        </span>
+        <span *ngIf="item.status !== 0" class="success-message">
+          Order placed successfully!
+        </span>
+        <span >
+          <button (click)="deleteItem(item.cartId)">Delete</button>
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noItems>
+    <p>No items in the cart.</p>
+  </ng-template>
+  

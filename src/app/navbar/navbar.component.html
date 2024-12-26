@@ -1,0 +1,47 @@
+<nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" >MyApp</a>
+      <span *ngIf="isLoggedIn">{{ userName }}</span>
+  
+      <button class="hamburger" id="hamburger" (click)="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+  
+      <ul class="navbar-links" id="navbar-links">
+  
+        <li *ngIf="isLoggedIn && role === 'admin'">
+          <a routerLink="/admindashboard" routerLinkActive="active" class="nav-link">User Details</a>
+        </li>
+        <li *ngIf="isLoggedIn && role === 'admin'">
+          <a routerLink="/chart" routerLinkActive="active" class="nav-link">Chart</a>
+        </li>
+  
+        <li *ngIf="isLoggedIn && role === 'user'">
+          <a routerLink="/home" routerLinkActive="active" class="nav-link">Products</a>
+        </li>
+        <li *ngIf="isLoggedIn && role === 'user'">
+          <a routerLink="/addtocart" routerLinkActive="active" class="nav-link">Cart</a>
+        </li>
+  
+        <li *ngIf="!isLoggedIn">
+          <a routerLink="/login" routerLinkActive="active" class="nav-link">Login</a>
+        </li>
+        <li *ngIf="!isLoggedIn">
+          <a routerLink="/signup" routerLinkActive="active" class="nav-link">Signup</a>
+        </li>
+
+        <li *ngIf="isLoggedIn">
+          <a (click)="logout()" class="nav-link">Logout</a>
+        </li>
+        <li>
+          <div class="navbar-toggle">
+
+            <p-toggleswitch [(ngModel)]="isDarkMode" (onChange)="toggleTheme()"></p-toggleswitch>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
