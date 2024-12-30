@@ -19,7 +19,9 @@
           <h3>{{ product.productName }}</h3>
           <p><strong>Price:</strong> {{ product.price | currency }}</p>
           <p><strong>Description:</strong> {{ product.description }}</p>
-          <p><button (click)="handleAddToCart(product.product_Id)">Add To Cart</button></p>
+          <p>
+            <!-- <button (click)="handleAddToCart(product.product_Id)">Add To Cart</button> -->
+            <p-button label="Add To Cart"  (click)="handleAddToCart(product.product_Id)" class="custom-button"/></p>
         </div>
       </div>
     </div>

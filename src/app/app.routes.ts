@@ -6,6 +6,7 @@ import { guardGuard } from './guard/guard.guard';
 import { AddtocartComponent } from './addtocart/addtocart.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ChartAndGraphComponent } from './chart-and-graph/chart-and-graph.component';
+import { VideoUploadComponent } from './video-upload/video-upload.component';
 
 export const routes: Routes = [
     {
@@ -19,6 +20,10 @@ export const routes: Routes = [
     },
     {
         path:'chart',component:ChartAndGraphComponent, data: { roles: ['admin'] }
+
+    },
+    {
+        path:'upload-video',component:VideoUploadComponent
     },
     {
         path:'login',component:LoginComponent

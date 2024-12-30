@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms'; // Add this import
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  menuOpen = false;
 
   isDarkMode=false;
     isLoggedIn = false;
@@ -57,13 +58,15 @@ export class NavbarComponent {
         }
       });
     }
-  
-    toggleMenu(): void {
-      const navbarLinks = document.getElementById('navbar-links');
-      if (navbarLinks) {
-        navbarLinks.classList.toggle('show');
-      }
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
     }
+    // toggleMenu(): void {
+    //   const navbarLinks = document.getElementById('navbar-links');
+    //   if (navbarLinks) {
+    //     navbarLinks.classList.toggle('show');
+    //   }
+    // }
   }
   
   

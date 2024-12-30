@@ -1,9 +1,9 @@
-/* Add to cart container */
 .cart-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
-    gap: 16px; /* Spacing between items */
-    padding: 16px; /* Padding around the grid */
+    gap: 16px; 
+    padding: 16px;
+    color: black !important; 
   }
   
   /* Individual cart item styling */

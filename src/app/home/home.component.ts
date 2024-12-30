@@ -6,11 +6,12 @@ import { CategoryService } from '../services/category.service';
 import { ProductcategoryService } from '../services/productcategory.service';
 import { AddToCartService } from '../services/add-to-cart.service';
 import { GetAllProductService } from '../services/get-all-product.service';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,ButtonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

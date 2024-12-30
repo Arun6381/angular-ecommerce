@@ -3,13 +3,20 @@
       <a class="navbar-brand" >MyApp</a>
       <span *ngIf="isLoggedIn">{{ userName }}</span>
   
-      <button class="hamburger" id="hamburger" (click)="toggleMenu()">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+      <button
+      class="hamburger"
+      id="hamburger"
+      (click)="toggleMenu()"
+      [class.active]="menuOpen"
+    >
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
   
-      <ul class="navbar-links" id="navbar-links">
+      <ul  class="navbar-links"
+      id="navbar-links"
+      [class.show]="menuOpen">
   
         <li *ngIf="isLoggedIn && role === 'admin'">
           <a routerLink="/admindashboard" routerLinkActive="active" class="nav-link">User Details</a>
@@ -31,7 +38,9 @@
         <li *ngIf="!isLoggedIn">
           <a routerLink="/signup" routerLinkActive="active" class="nav-link">Signup</a>
         </li>
-
+        <li *ngIf="isLoggedIn">
+          <a routerLink="/upload-video" routerLinkActive="active" class="nav-link">Video</a>
+        </li>
         <li *ngIf="isLoggedIn">
           <a (click)="logout()" class="nav-link">Logout</a>
         </li>
