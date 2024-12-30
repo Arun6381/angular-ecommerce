@@ -70,7 +70,6 @@ export class VideoUploadComponent {
     );
   }
 
-  // Fetch and play video using Base64 data
   onPlayVideo(id: number): void {
     this.getvideo.getVideoById(id).subscribe(
       (response: any) => {
