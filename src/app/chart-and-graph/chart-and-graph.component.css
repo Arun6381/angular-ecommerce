@@ -20,13 +20,9 @@
     width: 100%;
     max-width: 500px;
   }
-  ::ng-deep .ngx-charts-text {
-    fill: #FF0000 !important; /* Change label text color */
-    font-size: 14px;          /* Optional: Change font size */
-  }
+
   
-  ::ng-deep .ngx-charts-x-axis text, 
-  ::ng-deep .ngx-charts-y-axis text {
-    fill: #0000FF !important; /* Change axis label color */
+  :host ::ng-deep .ngx-charts text {
+    fill: var(--chart-color) !important;
   }
   

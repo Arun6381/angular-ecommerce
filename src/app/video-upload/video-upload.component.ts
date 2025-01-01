@@ -21,10 +21,9 @@ export class VideoUploadComponent {
  
  
   ngOnInit(): void {
-    this.getAllVideoes(); // Fetch all videos when the page loads
+    this.getAllVideoes(); 
   }
 
-  // Handle file selection
   onFileSelect(event: any): void {
     const file = event.target.files[0];
     if (file) {
@@ -37,7 +36,6 @@ export class VideoUploadComponent {
       (response: any) => {
         if (Array.isArray(response) && response.length > 0) {
           this.allVideos = response.map((video: any) => {
-            // For each video, convert base64 to a blob URL
             const videoBlob = this.base64ToBlob(video.base64Data, video.contentType);
             video.videoUrl = URL.createObjectURL(videoBlob); // Add video URL
             return video;
@@ -50,7 +48,7 @@ export class VideoUploadComponent {
       }
     );
   }
-  // Upload video to the server
+
   onUpload(): void {
     if (!this.videoFile) {
       alert('Please select a video file to upload.');
@@ -73,13 +71,12 @@ export class VideoUploadComponent {
   onPlayVideo(id: number): void {
     this.getvideo.getVideoById(id).subscribe(
       (response: any) => {
-        this.videoBase64 = response.Base64Data;  // Video Base64 data
-        this.videoContentType = response.ContentType;  // Video Content Type (e.g., video/mp4)
-        this.fileName = response.FileName;  // File Name
+        this.videoBase64 = response.Base64Data;  
+        this.videoContentType = response.ContentType;  
+        this.fileName = response.FileName;  
 
-        // Convert Base64 to Blob and create a URL
         const videoBlob = this.base64ToBlob(this.videoBase64, this.videoContentType);
-        this.videoBase64 = URL.createObjectURL(videoBlob);  // Set the URL for the video source
+        this.videoBase64 = URL.createObjectURL(videoBlob);  
       },
       (error) => {
         console.error('Error fetching video:', error);
@@ -88,9 +85,8 @@ export class VideoUploadComponent {
     );
   }
 
-  // Helper function to convert Base64 to Blob
   base64ToBlob(base64: string, contentType: string): Blob {
-    const byteCharacters = atob(base64);  // Decode the Base64 string
+    const byteCharacters = atob(base64);  
     const byteArrays = [];
 
     for (let offset = 0; offset < byteCharacters.length; offset += 512) {

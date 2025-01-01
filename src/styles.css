@@ -7,11 +7,17 @@
 :root {
     --background-color: #ffffff;
     --text-color: #000000;
+    --nav-background-color:rgb(255, 166, 0);
+    --chart-color:black;
   }
   
   [data-theme="dark"] {
-    --background-color: #121212;
+    --background-color: #08021f;
     --text-color: #ffffff;
+    --nav-background-color:rgb(212, 0, 255);
+    --chart-color:rgb(255, 255, 255);
+
+
   }
   
   body {
@@ -19,5 +25,7 @@
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
 
-  }
+  font-family: 'Poppins', sans-serif;
+
+}
   

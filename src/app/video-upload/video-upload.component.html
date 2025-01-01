@@ -1,4 +1,4 @@
-<p>video-upload works!</p>
+<!-- <p>video-upload works!</p>
 <div class="container">
     <h2>Upload Video</h2>
     <input type="file" (change)="onFileSelect($event)" />
@@ -37,4 +37,27 @@
     </video>
   </div>
   
-   -->
+   --> 
+   <div class="container">
+    <h2 class="title">Upload Video</h2>
+    <div class="upload-section">
+      <input type="file" id="file-input" (change)="onFileSelect($event)" hidden />
+      <label for="file-input" class="upload-button">Choose File</label>
+      <button class="upload-button" (click)="onUpload()">Upload Video</button>
+    </div>
+  
+    <div *ngIf="isVideoUploaded" class="uploaded-video">
+      <h3>Uploaded Video</h3>
+    </div>
+  
+    <div *ngIf="allVideos.length > 0" class="video-gallery">
+      <div class="video-card" *ngFor="let video of allVideos">
+        <video class="video-player" width="400" controls>
+          <source [src]="video.videoUrl" [type]="video.contentType" />
+          Your browser does not support the video tag.
+        </video>
+        <p class="video-title">{{ video.fileName }}</p>
+      </div>
+    </div>
+  </div>
+  
