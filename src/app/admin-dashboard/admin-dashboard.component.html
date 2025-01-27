@@ -1,4 +1,6 @@
-<div class="cart-container" *ngIf="!loading; else loadingTemplate">
+<div *ngIf="loading$ | async; else loadingTemplate">
+  <!-- <div class="cart-container" *ngIf="!loading; else loadingTemplate"> -->
+
   <div class="filter-container">
     <div class="search-wrapper">
       <input
@@ -104,7 +106,11 @@
     </div>
 </div>
 </ng-template>
-
+<!-- 
+<app-chart-and-graph 
+  [GetAddToCart]="GetAddToCart" 
+  [loading]="loading">
+</app-chart-and-graph> -->
 
 
 <!-- 

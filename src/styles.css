@@ -9,6 +9,8 @@
     --text-color: #000000;
     --nav-background-color:rgb(255, 166, 0);
     --chart-color:black;
+    --hover-background-color:rgb(253, 196, 89);
+
   }
   
   [data-theme="dark"] {
@@ -16,7 +18,7 @@
     --text-color: #ffffff;
     --nav-background-color:rgb(212, 0, 255);
     --chart-color:rgb(255, 255, 255);
-
+    --hover-background-color:rgb(234, 132, 255);
 
   }
   

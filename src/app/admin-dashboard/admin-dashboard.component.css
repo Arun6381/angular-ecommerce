@@ -18,7 +18,7 @@
     width: 100%;
     padding: 8px;
     margin-right: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid orange;
     border-radius: 4px;
   }
   
@@ -66,7 +66,27 @@
   ::ng-deep .pagination .p-paginator {
     background-color: transparent !important;
   }
+  ::ng-deep .p-paginator-page.p-paginator-page-selected  {
+    background-color: orange;
+    color: rgb(255, 255, 255);
+  }
+
+
+  /* ::ng-deep .p-paginator {
+    all: unset !important;
+  } */
   
+  ::ng-deep .p-paginator-page {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+  }
+  
+  ::ng-deep .p-paginator-page-selected {
+    background-color: orange;
+    color: white;
+  }
+  
+
   .pagination-controls {
     display: flex;
     justify-content: center ;

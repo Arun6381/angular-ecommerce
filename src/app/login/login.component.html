@@ -27,6 +27,9 @@
       </div>
   
       <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      <button type="button" (click)="onAzureLogin()">Azure Login</button>
+
+
       <div class="signUp-btn">already have a account?<a [routerLink]="['/signup']" routerLinkActive="router-link-active" >signup</a></div>
 
     </form>

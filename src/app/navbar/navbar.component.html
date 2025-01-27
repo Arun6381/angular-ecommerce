@@ -42,12 +42,14 @@
           <a routerLink="/upload-video" routerLinkActive="active" class="nav-link">Video</a>
         </li>
         <li *ngIf="isLoggedIn">
+          <a routerLink="/child-to-parent" routerLinkActive="active" class="nav-link">child-to-parent</a>
+        </li>
+        <li *ngIf="isLoggedIn">
           <a (click)="logout()" class="nav-link">Logout</a>
         </li>
         <li>
           <div class="navbar-toggle">
-
-            <p-toggleswitch [(ngModel)]="isDarkMode" (onChange)="toggleTheme()"></p-toggleswitch>
+             <p-toggleswitch [(ngModel)]="isDarkMode" (onChange)="toggleTheme()"></p-toggleswitch>
           </div>
         </li>
       </ul>

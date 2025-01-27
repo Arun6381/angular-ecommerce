@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { utils, writeFile } from 'xlsx';
 import { toPng } from 'html-to-image';
@@ -20,6 +20,7 @@ import { ButtonModule } from 'primeng/button';
 })
 
 export class ChartAndGraphComponent {
+  
   GetAddToCart: GetAddtocart[] = [];
   loading: boolean = true;
   error: string = '';
@@ -29,8 +30,6 @@ export class ChartAndGraphComponent {
 
   menuItems: any[] = [];
 
-
-  
   constructor(
     private adminDashBoard: AdminDashboardService,
     private messageService: MessageService
@@ -135,3 +134,51 @@ export class ChartAndGraphComponent {
     });
   }
 }
+
+
+// import { Component, Input, OnChanges } from '@angular/core';
+// import { GetAddtocart } from '../models/get-addtocart';
+
+// @Component({
+//   selector: 'app-chart-and-graph',
+//  standalone: true,
+//   templateUrl: './chart-and-graph.component.html',
+//   styleUrls: ['./chart-and-graph.component.css']
+// })
+// export class ChartAndGraphComponent implements OnChanges {
+//   @Input() GetAddToCart: GetAddtocart[] = [];
+//   @Input() loading: boolean = true;
+
+//   statusData: any[] = [];
+//   productData: any[] = [];
+//   COLORS = ['#0088FE', '#FF8042'];
+
+//   ngOnChanges(): void {
+//     if (!this.loading) {
+//       this.prepareChartData();
+//     }
+//   }
+
+//   prepareChartData(): void {
+//     this.statusData = [
+//       {
+//         name: 'Order Placed',
+//         value: this.GetAddToCart.filter((item) => item.status === 1).length,
+//       },
+//       {
+//         name: 'Pending',
+//         value: this.GetAddToCart.filter((item) => item.status !== 1).length,
+//       },
+//     ];
+
+//     this.productData = this.GetAddToCart.reduce((acc: any[], item: any) => {
+//       const found = acc.find((prod) => prod.name === item.productName);
+//       if (found) {
+//         found.value += 1;
+//       } else {
+//         acc.push({ name: item.productName, value: 1 });
+//       }
+//       return acc;
+//     }, []);
+//   }
+// }

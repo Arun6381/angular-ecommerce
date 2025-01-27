@@ -7,6 +7,8 @@ import { AddtocartComponent } from './addtocart/addtocart.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ChartAndGraphComponent } from './chart-and-graph/chart-and-graph.component';
 import { VideoUploadComponent } from './video-upload/video-upload.component';
+import { ParentComponent } from './parent/parent.component';
+import { AuthCallbackComponent } from './authcallback/authcallback.component';
 
 export const routes: Routes = [
     {
@@ -22,8 +24,13 @@ export const routes: Routes = [
         path:'chart',component:ChartAndGraphComponent, data: { roles: ['admin'] }
 
     },
+    { path: 'auth/callback', component: AuthCallbackComponent },
+
     {
         path:'upload-video',component:VideoUploadComponent
+    },
+    {
+        path:'child-to-parent',component:ParentComponent
     },
     {
         path:'login',component:LoginComponent

@@ -10,7 +10,12 @@ export class AdminDashboardService {
   private api='https://localhost:7217/api/AddToCart/GetCartDetail';
   constructor(private http:HttpClient) { }
 
-  getAddToCart():Observable<GetAddtocart[]>{
-    return this.http.get<GetAddtocart[]>(this.api)
+  getAddToCart(): Observable<GetAddtocart[]> {
+    console.log('Service Method Called: getAddToCart');
+    return this.http.get<GetAddtocart[]>(this.api);
   }
+  
+  // getAddToCart():Observable<GetAddtocart[]>{
+  //   return this.http.get<GetAddtocart[]>(this.api)
+  // }
 }

@@ -5,7 +5,7 @@ import { LogoutService } from '../services/logout.service';
 import { AuthService } from '../services/auth.service';
 import { ThemeService } from '../services/theme.service';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
-import { FormsModule } from '@angular/forms'; // Add this import
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +16,6 @@ import { FormsModule } from '@angular/forms'; // Add this import
 })
 export class NavbarComponent {
   menuOpen = false;
-
   isDarkMode = false;
   isLoggedIn = false;
   userName = 'guest';

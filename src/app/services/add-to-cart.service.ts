@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AddToCartService {
+  getAddToCart() {
+      throw new Error('Method not implemented.');
+  }
   private apiUrl = 'https://localhost:7217/api/AddToCart/AddToCart';
 
   constructor(private http:HttpClient) { }

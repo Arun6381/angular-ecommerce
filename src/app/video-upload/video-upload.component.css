@@ -33,7 +33,7 @@
   }
   
   .upload-button {
-    background-color: #ff0000;
+    background-color: var(--nav-background-color);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -44,7 +44,7 @@
   }
   
   .upload-button:hover {
-    background-color: #cc0000;
+    background-color: var(--hover-background-color);
   }
   
   .video-gallery {

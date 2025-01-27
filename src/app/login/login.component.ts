@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router ,RouterLink} from '@angular/router';  // Use Router, not Route
+import { Router ,RouterLink} from '@angular/router';  
 import { LoginRespons } from '../models/login-respons';
 import { LoginService } from '../services/login.service';
 import { AuthService } from '../services/auth.service';
@@ -21,7 +21,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private loginService: LoginService, 
     private router: Router,
-    private authservice:AuthService
+    private authservice:AuthService,
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -29,6 +29,10 @@ export class LoginComponent {
     });
   }
 
+  
+  onAzureLogin(): void {
+    window.location.href = 'https://localhost:7217/api/auth/azureadlogin';
+  }
   
   onSubmit() {
     if (this.loginForm.valid) {
@@ -46,11 +50,11 @@ export class LoginComponent {
           if(response.roles=="admin"){
             this.router.navigate(['/admindashboard']); 
           }
-          // else if(response.roles='user'){
-          //   this.router.navigate(['/home'])
-          // }else{
-          //   this.router.navigate(['/login'])
-          // }
+          else if(response.roles='user'){
+            this.router.navigate(['/home'])
+          }else{
+            this.router.navigate(['/login'])
+          }
           alert(`Login Successfully Completed ${response.firstName}`)
 
         },

@@ -37,7 +37,7 @@ export class VideoUploadComponent {
         if (Array.isArray(response) && response.length > 0) {
           this.allVideos = response.map((video: any) => {
             const videoBlob = this.base64ToBlob(video.base64Data, video.contentType);
-            video.videoUrl = URL.createObjectURL(videoBlob); // Add video URL
+            video.videoUrl = URL.createObjectURL(videoBlob); 
             return video;
           });
         }

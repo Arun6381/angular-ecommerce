@@ -5,7 +5,7 @@
   <div *ngIf="cartItems.length > 0; else noItems">
     <div class="cart-container">
       <div *ngFor="let item of cartItems" class="cart-item">
-        <strong>{{ item.productName }}</strong> 
+        <strong class="prodItem">{{ item.productName }}</strong> 
         <span>₹{{ item.price }}</span> 
         <span *ngIf="item.status === 0">
           <button (click)="placeTheOrder(item.cartId)">Place the Order</button>
