@@ -1,2 +1,11 @@
 <app-navbar></app-navbar>
+<div class="card flex justify-center">
+    <p-menu #menu [model]="items" [popup]="true" />
+    <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-v"/>
+    <ng-template pTemplate="footer" class="btn-footer">
+        <button type="button" pButton icon="pi pi-check" label="Ok" class="btn main-btn">Ok</button>
+        <button  class="btn main-btn-white">Cancel</button>
+        </ng-template>
+</div>
+
 <router-outlet></router-outlet>
